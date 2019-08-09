@@ -6,8 +6,9 @@ public class Homework2 {
 
   public static void main(String[] args) {
 
-    Point p = new Point(1, 2, 3, 4);
-    System.out.println("Расстояние между точками с координатами " + p.x1 + "," + p.z1 + " и " + p.x2 + "," + p.z2 + " равняется " + p.distance());
+    Point p1 = new Point(1, 2);
+    Point p2 = new Point(3, 4);
+    System.out.println("Расстояние между точками с координатами " + p1.x + "," + p1.z + " и " + p2.x + "," + p2.z + " равняется " + p1.distance(p2));
 
   }
 }
