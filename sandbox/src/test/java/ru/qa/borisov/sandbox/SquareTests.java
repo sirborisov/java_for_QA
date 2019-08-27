@@ -3,7 +3,6 @@ package ru.qa.borisov.sandbox;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 public class SquareTests {
 
   @Test
