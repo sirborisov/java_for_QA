@@ -1,4 +1,4 @@
-package ru.qa.borisov.addressbook;
+package ru.qa.borisov.addressbook.model;
 
 public class GroupData {
   private final String name;

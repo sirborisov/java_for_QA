@@ -1,9 +1,10 @@
-package ru.qa.borisov.addressbook;
+package ru.qa.borisov.addressbook.tests;
 
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import ru.qa.borisov.addressbook.model.ContactData;
 
 public class ContactCreationTest {
   private WebDriver wd;
