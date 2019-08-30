@@ -2,6 +2,7 @@ package ru.qa.borisov.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class NavigationHelper extends HelperBase {
 
@@ -23,5 +24,9 @@ public class NavigationHelper extends HelperBase {
 
   public void gotoHome() {
     click(By.linkText("home"));
+  }
+
+  public void waitForVisibleHomePage(){
+    expect(By.name("searchstring"));
   }
 }

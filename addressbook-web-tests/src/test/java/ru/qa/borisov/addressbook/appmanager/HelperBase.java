@@ -16,7 +16,16 @@ public class HelperBase {
     wd.findElement(locator).sendKeys(text);
   }
 
+  public void expect (By locator){
+    wd.findElement(locator);
+  }
+
+
   public void click(By locator) {
     wd.findElement(locator).click();
+  }
+
+  public void accept() {
+    wd.switchTo().alert().accept();
   }
 }
