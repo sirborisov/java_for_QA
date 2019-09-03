@@ -1,6 +1,7 @@
 package ru.qa.borisov.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 
 public class HelperBase {
@@ -32,5 +33,14 @@ public class HelperBase {
 
   public void accept() {
     wd.switchTo().alert().accept();
+  }
+
+  public boolean isAlertPresent() {
+    try {
+      wd.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
   }
 }
