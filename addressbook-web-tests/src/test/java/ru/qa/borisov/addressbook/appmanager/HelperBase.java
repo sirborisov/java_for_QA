@@ -3,8 +3,7 @@ package ru.qa.borisov.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
-
-import java.util.NoSuchElementException;
+import org.openqa.selenium.NoSuchElementException;
 
 public class HelperBase {
   protected WebDriver wd;
@@ -17,14 +16,14 @@ public class HelperBase {
     click(locator);
     if (text != null) {
       String existingText = wd.findElement(locator).getAttribute("value");
-      if (! text.equals(existingText)) {
+      if (!text.equals(existingText)) {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
       }
     }
   }
 
-  public void expect (By locator){
+  public void expect(By locator) {
     wd.findElement(locator);
   }
 
@@ -50,8 +49,8 @@ public class HelperBase {
     try {
       wd.findElement(locator);
       return true;
-    } catch (NoSuchElementException ex) {
-      return  false;
+    } catch (NoSuchElementException e) {
+      return false;
     }
   }
 }

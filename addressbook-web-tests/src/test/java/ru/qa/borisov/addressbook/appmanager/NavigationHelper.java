@@ -19,10 +19,17 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void gotoEditPage() {
+    if (isElementPresent(By.name("submit"))
+            && isElementPresent(By.xpath("//input[@value='Enter'"))) {
+      return;
+    }
     click(By.linkText("add new"));
   }
 
   public void gotoHomePage() {
+    if (isElementPresent(By.id("maintable"))) {
+      return;
+    }
     click(By.linkText("home page"));
   }
 
@@ -33,7 +40,7 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("home"));
   }
 
-  public void waitForVisibleHomePage(){
+  public void waitForVisibleHomePage() {
     expect(By.name("searchstring"));
   }
 }
