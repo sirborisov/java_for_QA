@@ -26,7 +26,7 @@ public class Primes {
     while (i < n && n % i != 0) {
       i++;
     }
-    return i==n;
+    return i == n;
   }
 
   public static boolean isPrime(long n) {

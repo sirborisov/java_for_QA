@@ -1,14 +1,10 @@
 package ru.qa.borisov.addressbook.model;
 
 public class GroupData {
-  private int id;
   private final String name;
   private final String header;
   private final String footer;
-
-  public int getId() {
-    return id;
-  }
+  private int id;
 
   public GroupData(String name, String header, String footer) {
     this.id = Integer.MAX_VALUE;
@@ -23,6 +19,15 @@ public class GroupData {
     this.header = header;
     this.footer = footer;
   }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
   public String getName() {
     return name;
   }
@@ -33,10 +38,6 @@ public class GroupData {
 
   public String getFooter() {
     return footer;
-  }
-
-  public void setId(int id) {
-    this.id = id;
   }
 
   @Override
