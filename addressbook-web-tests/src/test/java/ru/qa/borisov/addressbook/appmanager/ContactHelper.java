@@ -62,12 +62,26 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("home page"));
   }
 
-  public void createContact(ContactData contactData, boolean create) {
+  public void create(ContactData contactData, boolean create) {
     fillContactForm(contactData, create);
     submitContactCreation();
     gotoHomePage();
   }
 
+  public void modify(int index, ContactData contact) {
+    initContactModification(index);
+    fillContactForm((contact), false);
+    submitContactModification();
+    gotoHomePage();
+  }
+
+  public void delete(int index) {
+    selectContact(index);
+    deleteSelectedContacts();
+    acceptContactDeletionsAlert();
+  }
+
+/*
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
@@ -75,8 +89,9 @@ public class ContactHelper extends HelperBase {
   public int getContactCount() {
     return wd.findElements(By.cssSelector("#maintable a[href^='edit.php']")).size();
   }
+ */
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));
     for (WebElement element : elements) {

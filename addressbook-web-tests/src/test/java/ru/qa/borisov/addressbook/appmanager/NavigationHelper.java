@@ -9,7 +9,7 @@ public class NavigationHelper extends HelperBase {
     super(wd);
   }
 
-  public void gotoGroupPage() {
+  public void groupPage() {
     if (isElementPresent(By.tagName("h1"))
             && wd.findElement(By.tagName("h1")).getText().equals("Groups")
             && isElementPresent(By.name("new"))) {
@@ -18,7 +18,7 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("groups"));
   }
 
-  public void gotoEditPage() {
+  public void edit() {
     if (isElementPresent(By.name("submit"))
             && isElementPresent(By.xpath("//input[@value='Enter'"))) {
       return;
@@ -26,14 +26,14 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void gotoHome() {
+  public void home() {
     if (isElementPresent(By.id("maintable"))) {
       return;
     }
     click(By.linkText("home"));
   }
 
-  public void waitForVisibleHomePage() {
+  public void visibleHome() {
     expect(By.name("searchstring"));
   }
 }
