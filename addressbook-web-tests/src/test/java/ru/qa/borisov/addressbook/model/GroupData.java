@@ -1,9 +1,9 @@
 package ru.qa.borisov.addressbook.model;
 
 public class GroupData {
-  private  String name;
-  private  String header;
-  private  String footer;
+  private String name;
+  private String header;
+  private String footer;
   private int id = Integer.MAX_VALUE;
 
   public int getId() {
@@ -57,12 +57,14 @@ public class GroupData {
 
     GroupData groupData = (GroupData) o;
 
+    if (id != groupData.id) return false;
     return name != null ? name.equals(groupData.name) : groupData.name == null;
   }
 
   @Override
   public int hashCode() {
-    return name != null ? name.hashCode() : 0;
+    int result = name != null ? name.hashCode() : 0;
+    result = 31 * result + id;
+    return result;
   }
-
 }

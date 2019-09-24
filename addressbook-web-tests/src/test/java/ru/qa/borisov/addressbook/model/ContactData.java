@@ -50,6 +50,7 @@ public class ContactData {
     this.group = group;
     return this;
   }
+
   public int getId() {
     return id;
   }
