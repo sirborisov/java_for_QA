@@ -8,7 +8,9 @@ import org.testng.Assert;
 import ru.qa.borisov.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -35,12 +37,12 @@ public class ContactHelper extends HelperBase {
     }
   }
 
-  public void selectContact(int index) {
-    wd.findElements(By.name("selected[]")).get(index).click();
+  public void selectContactById(int id) {
+    wd.findElement(By.cssSelector("input[id='" + id + "']")).click();
   }
 
-  public void initContactModification(int index) {
-    wd.findElements(By.cssSelector("#maintable a[href^='edit.php']")).get(index).click();
+  public void initContactModificationById(int id) {
+    wd.findElement(By.cssSelector("#maintable a[href='edit.php?id=" + id + "']")).click();
   }
 
   public void submitContactModification() {
@@ -68,15 +70,15 @@ public class ContactHelper extends HelperBase {
     gotoHomePage();
   }
 
-  public void modify(int index, ContactData contact) {
-    initContactModification(index);
+  public void modify(ContactData contact) {
+    initContactModificationById(contact.getId());
     fillContactForm((contact), false);
     submitContactModification();
     gotoHomePage();
   }
 
-  public void delete(int index) {
-    selectContact(index);
+  public void delete(ContactData contact) {
+    selectContactById(contact.getId());
     deleteSelectedContacts();
     acceptContactDeletionsAlert();
   }
@@ -91,8 +93,8 @@ public class ContactHelper extends HelperBase {
   }
  */
 
-  public List<ContactData> list() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));
     for (WebElement element : elements) {
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
@@ -102,4 +104,5 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+
 }
