@@ -13,8 +13,11 @@ public class ContactCreationTest extends TestBase {
   public void testContactCreation() {
     app.goTo().home();
     Contacts before = app.contact().all();
-    ContactData contact = new ContactData().withFirstname("Borisov4").withLastname("Vladimir").withNickname("nick").withAddress("Russian Federation").
-            withMobile("999").withWork("888").withHome("777").withEmail("sir.borisov@gmail.com").withGroup("Test1");
+    ContactData contact = new ContactData()
+            .withFirstname("Borisov676").withLastname("Vladimir").withNickname("nick")
+            .withAddress("Russian Federation")
+            .withMobile("999").withWork("888").withHome("777")
+            .withEmail("sir.borisov@gmail.com").withEmail2("borisov@gmail.com").withEmail3("sir@gmail.com").withGroup("Test1");
     app.goTo().edit();
     app.contact().create((contact), true);
     Contacts after = app.contact().all();

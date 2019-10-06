@@ -15,8 +15,12 @@ public class ContactModificationTests extends TestBase {
     app.goTo().home();
     if (app.contact().all().size() == 0) {
       app.goTo().edit();
-      app.contact().create(new ContactData().withFirstname("Borisov").withLastname("Vladimir").withNickname("nick").withAddress("Russian Federation").
-              withMobile("128500").withEmail("sir.borisov@gmail.com").withGroup("Test1"), true);
+      app.contact().create(new ContactData()
+              .withFirstname("Borisov").withLastname("Vladimir").withNickname("nick")
+              .withAddress("Russian Federation")
+              .withMobile("128500").withWork("489").withHome("5448")
+              .withEmail("sir.borisov@gmail.com").withEmail2("borisov@gmail.com").withEmail3("sir@gmail.com")
+              .withGroup("Test1"), true);
     }
   }
 
@@ -24,12 +28,14 @@ public class ContactModificationTests extends TestBase {
   public void testContactModification() {
     Contacts before = app.contact().all();
     ContactData modifiedContact = before.iterator().next();
-    ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstname("Borisov_new").withLastname("Vladimir1").withNickname("nick1").
-            withAddress("Russian Federation").withMobile("1285001").withEmail("sir.borisov@gmail.com1");
+    ContactData contact = new ContactData().withId(modifiedContact.getId())
+            .withFirstname("Borisov_new").withLastname("Vladimir1").withNickname("nick1")
+            .withAddress("Russian Federation")
+            .withMobile("1285001").withWork("+7984").withHome("52 36 98")
+            .withEmail("sir.borisov@gmail.com1").withEmail2("sdfsd@fdg.sd").withEmail3("mail@com.ru");
     app.contact().modify(contact);
     Contacts after = app.contact().all();
     assertThat(after.size(), equalTo(before.size()));
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
-    //    assertThat(after, equalTo(before.withModified(contact)));
   }
 }

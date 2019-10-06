@@ -22,8 +22,12 @@ public class ContactPhoneTest extends TestBase {
     app.goTo().home();
     if (app.contact().all().size() == 0) {
       app.goTo().edit();
-      app.contact().create(new ContactData().withFirstname("Borisov").withLastname("Vladimir").withNickname("nick").withAddress("Russian Federation").
-              withMobile("128500").withWork("489").withHome("5448").withEmail("sir.borisov@gmail.com").withGroup("Test1"), true);
+      app.contact().create(new ContactData()
+              .withFirstname("Borisov").withLastname("Vladimir").withNickname("nick")
+              .withAddress("Russian Federation")
+              .withMobile("128500").withWork("489").withHome("5448")
+              .withEmail("sir.borisov@gmail.com").withEmail2("borisov@gmail.com").withEmail3("sir@gmail.com")
+              .withGroup("Test1"), true);
     }
   }
 
