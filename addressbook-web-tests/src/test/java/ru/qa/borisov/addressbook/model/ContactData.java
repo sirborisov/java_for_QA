@@ -30,7 +30,7 @@ public class ContactData {
     return allEmails;
   }
 
-  public ContactData withAllEmails(String allPhones) {
+  public ContactData withAllEmails(String allEmails) {
     this.allEmails = allEmails;
     return this;
   }
@@ -79,10 +79,12 @@ public class ContactData {
     this.email = email;
     return this;
   }
+
   public ContactData withEmail2(String email2) {
     this.email2 = email2;
     return this;
   }
+
   public ContactData withEmail3(String email3) {
     this.email3 = email3;
     return this;
@@ -128,9 +130,11 @@ public class ContactData {
   public String getEmail() {
     return email;
   }
+
   public String getEmail2() {
     return email2;
   }
+
   public String getEmail3() {
     return email3;
   }
