@@ -26,9 +26,9 @@ public class GroupCreationTests extends TestBase {
   @DataProvider
   public Iterator<Object[]> invalidGroups() {
     List<Object[]> list = new ArrayList<Object[]>();
-    list.add(new Object[]{new GroupData().withName("test4").withHeader("header4").withFooter("footer4")});
-    list.add(new Object[]{new GroupData().withName("test5").withHeader("header5").withFooter("footer5")});
-    list.add(new Object[]{new GroupData().withName("test6").withHeader("header6").withFooter("footer6")});
+    list.add(new Object[]{new GroupData().withName("test4'").withHeader("header4").withFooter("footer4")});
+    list.add(new Object[]{new GroupData().withName("test5'").withHeader("header5").withFooter("footer5")});
+    list.add(new Object[]{new GroupData().withName("test6'").withHeader("header6").withFooter("footer6")});
     return list.iterator();
   }
 
