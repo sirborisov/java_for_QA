@@ -17,9 +17,18 @@ public class GroupCreationTests extends TestBase {
   @DataProvider
   public Iterator<Object[]> validGroups() {
     List<Object[]> list = new ArrayList<Object[]>();
-    list.add(new Object[] {new GroupData().withName("test1").withHeader("header1").withFooter("footer1")});
-    list.add(new Object[] {new GroupData().withName("test2'").withHeader("header2").withFooter("footer2")});
-    list.add(new Object[] {new GroupData().withName("test3").withHeader("header3").withFooter("footer3")});
+    list.add(new Object[]{new GroupData().withName("test1").withHeader("header1").withFooter("footer1")});
+    list.add(new Object[]{new GroupData().withName("test2").withHeader("header2").withFooter("footer2")});
+    list.add(new Object[]{new GroupData().withName("test3").withHeader("header3").withFooter("footer3")});
+    return list.iterator();
+  }
+
+  @DataProvider
+  public Iterator<Object[]> invalidGroups() {
+    List<Object[]> list = new ArrayList<Object[]>();
+    list.add(new Object[]{new GroupData().withName("test4").withHeader("header4").withFooter("footer4")});
+    list.add(new Object[]{new GroupData().withName("test5").withHeader("header5").withFooter("footer5")});
+    list.add(new Object[]{new GroupData().withName("test6").withHeader("header6").withFooter("footer6")});
     return list.iterator();
   }
 
@@ -33,15 +42,13 @@ public class GroupCreationTests extends TestBase {
     assertThat(after, equalTo(before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
   }
 
-  @Test
-  public void testBadGroupCreation() {
+  @Test(dataProvider = "invalidGroups")
+  public void testBadGroupCreation(GroupData group) {
     app.goTo().groupPage();
     Groups before = app.group().all();
-    GroupData group = new GroupData().withName("Test5'").withHeader("test6").withFooter("test_7");
     app.group().create(group);
     assertThat(app.group().count(), equalTo(before.size()));
     Groups after = app.group().all();
     assertThat(after, equalTo(before));
   }
-
 }
