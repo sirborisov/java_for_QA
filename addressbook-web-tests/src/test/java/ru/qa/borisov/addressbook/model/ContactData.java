@@ -1,23 +1,37 @@
 package ru.qa.borisov.addressbook.model;
 
+import com.google.gson.annotations.Expose;
+
 import java.io.File;
 
 public class ContactData {
 
+  @Expose
   private String firstname;
+  @Expose
   private String lastname;
+  @Expose
   private String nickname;
+  @Expose
   private String address;
+  @Expose
   private String mobile;
+  @Expose
   private String work;
+  @Expose
   private String home;
   private String allPhones;
+  @Expose
   private String email;
+  @Expose
   private String email2;
+  @Expose
   private String email3;
   private String allEmails;
+  @Expose
   private String group;
   private File photo;
+  private int id = Integer.MAX_VALUE;
 
   public File getPhoto() {
     return photo;
@@ -27,8 +41,6 @@ public class ContactData {
     this.photo = photo;
     return this;
   }
-
-  private int id = Integer.MAX_VALUE;
 
   public String getAllPhones() {
     return allPhones;
