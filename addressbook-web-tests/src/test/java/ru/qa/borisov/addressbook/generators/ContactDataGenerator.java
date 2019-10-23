@@ -37,7 +37,7 @@ public class ContactDataGenerator {
               .withAddress(String.format("Russian Federation  Ulyanovsk  Lenina str. %s", i))
               .withMobile(String.format("mobile phone %s", i)).withWork(String.format("work phone %s", i)).withHome(String.format("home phone %s", i))
               .withEmail(String.format("email  %s", i)).withEmail2(String.format("email %s", i)).withEmail3(String.format("email %s", i))
-              .withGroup(String.format("Group  %s", i)));
+              .withGroup(String.format("test %s", i)));
     }
     return contacts;
   }
