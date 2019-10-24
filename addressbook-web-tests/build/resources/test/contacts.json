@@ -1,6 +1,6 @@
 [
   {
-    "firstname": "FotoFoto",
+    "firstname": "Firstname 0",
     "lastname": "Lastname 0",
     "nickname": "nickname 0",
     "address": "Russian Federation  Ulyanovsk  Lenina str. 0",
@@ -11,5 +11,57 @@
     "email2": "email 0",
     "email3": "email 0",
     "group": "test 0"
+  },
+  {
+    "firstname": "Firstname 1",
+    "lastname": "Lastname 1",
+    "nickname": "nickname 1",
+    "address": "Russian Federation  Ulyanovsk  Lenina str. 1",
+    "mobile": "mobile phone 1",
+    "work": "work phone 1",
+    "home": "home phone 1",
+    "email": "email  1",
+    "email2": "email 1",
+    "email3": "email 1",
+    "group": "test 1"
+  },
+  {
+    "firstname": "Firstname 2",
+    "lastname": "Lastname 2",
+    "nickname": "nickname 2",
+    "address": "Russian Federation  Ulyanovsk  Lenina str. 2",
+    "mobile": "mobile phone 2",
+    "work": "work phone 2",
+    "home": "home phone 2",
+    "email": "email  2",
+    "email2": "email 2",
+    "email3": "email 2",
+    "group": "test 2"
+  },
+  {
+    "firstname": "Firstname 3",
+    "lastname": "Lastname 3",
+    "nickname": "nickname 3",
+    "address": "Russian Federation  Ulyanovsk  Lenina str. 3",
+    "mobile": "mobile phone 3",
+    "work": "work phone 3",
+    "home": "home phone 3",
+    "email": "email  3",
+    "email2": "email 3",
+    "email3": "email 3",
+    "group": "test 3"
+  },
+  {
+    "firstname": "Firstname 4",
+    "lastname": "Lastname 4",
+    "nickname": "nickname 4",
+    "address": "Russian Federation  Ulyanovsk  Lenina str. 4",
+    "mobile": "mobile phone 4",
+    "work": "work phone 4",
+    "home": "home phone 4",
+    "email": "email  4",
+    "email2": "email 4",
+    "email3": "email 4",
+    "group": "test 4"
   }
 ]
