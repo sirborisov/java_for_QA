@@ -22,7 +22,7 @@ public class ContactCreationTest extends TestBase {
 
   @DataProvider
   public Iterator<Object[]> validContactsFromJson() throws IOException {
-    try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")))) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(new File(app.properties.getProperty("file.contactsJson"))))) {
       String json = "";
       String line = reader.readLine();
       while (line != null) {
@@ -40,7 +40,7 @@ public class ContactCreationTest extends TestBase {
   public void testContactCreation(ContactData contact) {
     app.goTo().home();
     Contacts before = app.contact().all();
-    File photo = new File("src/test/resources/img.jpeg");
+    File photo = new File(app.properties.getProperty("file.contactPhoto"));
     app.goTo().edit();
     app.contact().create((contact.withPhoto(photo)), true);
     assertThat(app.contact().count(), equalTo(before.size() + 1));

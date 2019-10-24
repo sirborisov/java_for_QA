@@ -7,7 +7,7 @@ import ru.qa.borisov.addressbook.appmanager.ApplicationManager;
 
 public class TestBase {
 
-  protected static ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+  protected static ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
 
   @BeforeSuite(alwaysRun = true)
   public void setUp() throws Exception {
