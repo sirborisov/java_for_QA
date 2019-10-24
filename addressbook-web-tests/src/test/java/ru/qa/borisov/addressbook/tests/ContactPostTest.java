@@ -27,7 +27,7 @@ public class ContactPostTest extends TestBase {
     }
   }
 
-  @Test(enabled = false)
+  @Test
   public void testContactPost() {
     ContactData contact = app.contact().all().iterator().next();
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);

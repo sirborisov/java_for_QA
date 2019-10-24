@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.qa.borisov.addressbook.tests.GroupDeletionTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-24T11:42:50" hostname="MAC-005" time="3.304">
+  <properties/>
+  <testcase name="testGroupDeletion" classname="ru.qa.borisov.addressbook.tests.GroupDeletionTests" time="3.304"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
