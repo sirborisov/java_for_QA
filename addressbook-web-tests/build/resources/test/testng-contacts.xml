@@ -1,14 +1,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite1" verbose="1" >
+<suite name="Suite1" verbose="1">
     <test name="Contacts">
         <classes>
             <class name="ru.qa.borisov.addressbook.tests.ContactCreationTest"/>
-<!--            <class name="ru.qa.borisov.addressbook.tests.ContactMainTest"/>-->
-<!--            <class name="ru.qa.borisov.addressbook.tests.ContactPhoneTest"/>-->
-<!--            <class name="ru.qa.borisov.addressbook.tests.ContactPostTest"/>-->
-<!--            <class name="ru.qa.borisov.addressbook.tests.ContactEmailTest"/>-->
-<!--            <class name="ru.qa.borisov.addressbook.tests.ContactModificationTests"/>-->
+            <!--            <class name="ru.qa.borisov.addressbook.tests.ContactMainTest"/>-->
+            <!--            <class name="ru.qa.borisov.addressbook.tests.ContactPhoneTest"/>-->
+            <!--            <class name="ru.qa.borisov.addressbook.tests.ContactPostTest"/>-->
+            <!--            <class name="ru.qa.borisov.addressbook.tests.ContactEmailTest"/>-->
+            <!--            <class name="ru.qa.borisov.addressbook.tests.ContactModificationTests"/>-->
             <class name="ru.qa.borisov.addressbook.tests.ContactDeletionTest"/>
         </classes>
     </test>

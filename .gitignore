@@ -16,3 +16,7 @@ gradle-app.setting
 addressbook-web-tests/src/test/resources/groups.json
 addressbook-web-tests/src/test/resources/contacts.json
 addressbook-web-tests/src/test/resources/img.jpeg
+*.json
+*.json
+*.csv
+*.log
