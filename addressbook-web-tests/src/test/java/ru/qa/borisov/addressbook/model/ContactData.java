@@ -1,44 +1,87 @@
 package ru.qa.borisov.addressbook.model;
 
 import com.google.gson.annotations.Expose;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
+
+@Entity
+@Table(name = "addressbook")
 
 public class ContactData {
 
+  @Column(name = "firstname")
   @Expose
   private String firstname;
+
+  @Column(name = "lastname")
   @Expose
   private String lastname;
+
+  @Column(name = "nickname")
   @Expose
   private String nickname;
+
+  @Column(name = "address")
+  @Type(type = "text")
   @Expose
   private String address;
+
+  @Column(name = "mobile")
+  @Type(type = "text")
   @Expose
   private String mobile;
+
+  @Column(name = "work")
+  @Type(type = "text")
   @Expose
   private String work;
+
+  @Column(name = "home")
+  @Type(type = "text")
   @Expose
   private String home;
+
+  @Transient
   private String allPhones;
+
+  @Column(name = "email")
+  @Type(type = "text")
   @Expose
   private String email;
+
+  @Column(name = "email2")
+  @Type(type = "text")
   @Expose
   private String email2;
+
+  @Column(name = "email3")
+  @Type(type = "text")
   @Expose
   private String email3;
+
+  @Transient
   private String allEmails;
+
+  @Transient
   @Expose
   private String group;
-  private File photo;
+
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
+
+  @Id
+  @Column(name = "id")
   private int id = Integer.MAX_VALUE;
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 

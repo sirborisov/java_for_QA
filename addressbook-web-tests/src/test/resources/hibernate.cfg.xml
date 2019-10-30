@@ -24,6 +24,7 @@
         <property name="hbm2ddl.auto">validate</property>
 
         <mapping class="ru.qa.borisov.addressbook.model.GroupData"/>
+        <mapping class="ru.qa.borisov.addressbook.model.ContactData"/>
 
     </session-factory>
 
