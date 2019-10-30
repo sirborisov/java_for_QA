@@ -20,7 +20,7 @@ public class ContactPhoneTest extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().home();
-    if (app.contact().all().size() == 0) {
+    if (app.db().contacts().size() == 0) {
       app.goTo().edit();
       app.contact().create(new ContactData()
               .withFirstname("Borisov").withLastname("Vladimir").withNickname("nick")
