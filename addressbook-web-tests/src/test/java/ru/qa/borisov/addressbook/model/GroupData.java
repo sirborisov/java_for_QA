@@ -3,17 +3,35 @@ package ru.qa.borisov.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @XStreamAlias("group")
-
+@Entity
+@Table(name = "group_list")
 public class GroupData {
+
+  @Column(name = "group_name")
   @Expose
   private String name;
+
+  @Column(name = "group_header")
+  @Type(type = "text")
   @Expose
   private String header;
+
+  @Column(name = "group_footer")
+  @Type(type = "text")
   @Expose
   private String footer;
+
   @XStreamOmitField
+  @Id
+  @Column(name = "group_id")
   private int id = Integer.MAX_VALUE;
 
   public int getId() {
