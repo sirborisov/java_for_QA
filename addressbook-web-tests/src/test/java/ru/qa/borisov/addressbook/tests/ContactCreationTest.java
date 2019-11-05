@@ -2,10 +2,13 @@ package ru.qa.borisov.addressbook.tests;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.qa.borisov.addressbook.model.ContactData;
 import ru.qa.borisov.addressbook.model.Contacts;
+import ru.qa.borisov.addressbook.model.GroupData;
+import ru.qa.borisov.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -36,13 +39,22 @@ public class ContactCreationTest extends TestBase {
     }
   }
 
+  @BeforeMethod
+  public void ensurePreconditions() {
+    if (app.db().groups().size() == 0) {
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName("Test_group_before").withHeader("group_before"));
+    }
+  }
+
   @Test(dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
     app.goTo().home();
+    Groups groups = app.db().groups();
     Contacts before = app.db().contacts();
     File photo = new File(app.properties.getProperty("file.contactPhoto"));
     app.goTo().edit();
-    app.contact().create((contact.withPhoto(photo)), true);
+    app.contact().create((contact.withPhoto(photo).inGroup(groups.iterator().next())), true);
     assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after = app.db().contacts();
     assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
