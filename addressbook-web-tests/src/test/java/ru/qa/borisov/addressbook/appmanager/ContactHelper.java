@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.qa.borisov.addressbook.model.ContactData;
 import ru.qa.borisov.addressbook.model.Contacts;
+import ru.qa.borisov.addressbook.model.GroupData;
 
 import java.util.List;
 
@@ -61,6 +62,24 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//input[@value='Delete']"));
   }
 
+  public void selectGroup(int Id) {
+    click(By.name("to_group"));
+    click(By.xpath("//select[@name='to_group']/option[@value = '" + Id + "']"));
+  }
+
+  public void selectGroupPage(int Id) {
+    click(By.name("group"));
+    click(By.xpath("//select[@name='group']/option[@value = '" + Id + "']"));
+  }
+
+  public void addToSelectGroup() {
+    click(By.name("add"));
+  }
+
+  public void removeFromSelectGroup() {
+    click(By.name("remove"));
+  }
+
   public void acceptContactDeletionsAlert() {
     accept();
   }
@@ -71,6 +90,11 @@ public class ContactHelper extends HelperBase {
     }
     click(By.linkText("home page"));
   }
+
+  public void gotoSelectGroupPage(int id) {
+    wd.findElement(By.cssSelector("a[href='./?group=" + id + "']")).click();
+  }
+
 
   public void create(ContactData contactData, boolean create) {
     fillContactForm(contactData, create);
@@ -103,6 +127,22 @@ public class ContactHelper extends HelperBase {
     contactCache = null;
     acceptContactDeletionsAlert();
   }
+
+  public void addToGroup(ContactData contact, GroupData group) {
+    selectContactById(contact.getId());
+    selectGroup(group.getId());
+    addToSelectGroup();
+    gotoSelectGroupPage(group.getId());
+  }
+
+  public void deleteFromGroup(ContactData contact, GroupData group) {
+    selectGroupPage(group.getId());
+    selectContactById(contact.getId());
+    removeFromSelectGroup();
+    gotoSelectGroupPage(group.getId());
+
+  }
+
 
   public Contacts all() {
     if (contactCache != null) {
@@ -141,4 +181,6 @@ public class ContactHelper extends HelperBase {
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).withMobile(mobile).withWork(work).withHome(home)
             .withEmail(email).withEmail2(email2).withEmail3(email3).withAddress(address);
   }
+
+
 }
