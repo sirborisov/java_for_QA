@@ -1,0 +1,19 @@
+<?php
+$g_hostname = 'localhost';
+$g_db_type = 'mysqli';
+$g_database_name = 'bugtracker';
+$g_db_username = 'root';
+$g_db_password = '';
+$g_signup_use_captcha = OFF;
+$g_phpMailer_method = PHPMAILER_METHOD_SMTP;
+$g_smtp_host = 'localhost';
+$g_crypto_master_salt = '1234567890123456789';
+$g_allow_signup				= ON;
+$g_allow_anonymous_login	= OFF;
+$g_anonymous_account		= '';
+$g_smtp_host			= 'localhost';
+$g_smtp_username		= '';
+$g_smtp_password		= '';
+$g_webmaster_email      = 'webmaster@example.com';
+$g_from_email           = 'noreply@example.com';
+$g_return_path_email    = 'admin@example.com';

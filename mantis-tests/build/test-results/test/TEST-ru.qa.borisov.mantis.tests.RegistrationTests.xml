@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.qa.borisov.mantis.tests.RegistrationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-07T11:15:06" hostname="MAC-005" time="15.971">
+  <properties/>
+  <testcase name="testRegistration" classname="ru.qa.borisov.mantis.tests.RegistrationTests" time="15.971"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5) on port 46727
+Only local connections are allowed.
+нояб. 07, 2019 3:15:14 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+]]></system-err>
+</testsuite>
