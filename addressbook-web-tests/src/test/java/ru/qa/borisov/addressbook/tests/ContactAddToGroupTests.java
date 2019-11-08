@@ -29,8 +29,20 @@ public class ContactAddToGroupTests extends TestBase {
                       .withAddress("Russian Federation" + "\n" + "Ulyanovsk" + "\n" + "Lenina str." + "\n" + "+-()#$!^")
                       .withMobile("128500").withWork("489").withHome("5448")
                       .withEmail("sir.borisov@gmail.com").withEmail2("borisov@gmail.com").withEmail3("sir@gmail.com")
-                      .inGroup(groups.iterator().next())
+//                      .inGroup(groups.iterator().next())
               , true);
+    }
+
+    for (ContactData contact : app.db().contacts()) {
+      if (contact.getGroups().size() == app.db().contacts().size()) {
+        app.goTo().edit();
+        app.contact().create(new ContactData()
+                        .withFirstname("Borisov").withLastname("Vladimir").withNickname("nick")
+                        .withAddress("Russian Federation" + "\n" + "Ulyanovsk" + "\n" + "Lenina str." + "\n" + "+-()#$!^")
+                        .withMobile("128500").withWork("489").withHome("5448")
+                        .withEmail("sir.borisov@gmail.com").withEmail2("borisov@gmail.com").withEmail3("sir@gmail.com")
+                , true);
+      }
     }
   }
 
