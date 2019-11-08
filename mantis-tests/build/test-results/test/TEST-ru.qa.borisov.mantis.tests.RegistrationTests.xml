@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.qa.borisov.mantis.tests.RegistrationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-07T11:15:06" hostname="MAC-005" time="15.971">
+<testsuite name="ru.qa.borisov.mantis.tests.RegistrationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-08T10:01:07" hostname="MAC-005" time="16.957">
   <properties/>
-  <testcase name="testRegistration" classname="ru.qa.borisov.mantis.tests.RegistrationTests" time="15.971"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5) on port 46727
+  <testcase name="testRegistration" classname="ru.qa.borisov.mantis.tests.RegistrationTests" time="16.957"/>
+  <system-out><![CDATA[JAMES Remote Administration Tool 2.3.1
+Please enter your login and password
+Login id:
+
+Password:
+
+Login failed for 
+Login id:root
+
+Password:root
+
+Welcome root. HELP for a list of commandsadduser user1573207267651 password
+
+User user1573207267651 addedquit
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5) on port 23392
 Only local connections are allowed.
-нояб. 07, 2019 3:15:14 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+нояб. 08, 2019 2:01:10 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: OSS
 ]]></system-err>
 </testsuite>

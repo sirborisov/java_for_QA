@@ -17,3 +17,4 @@ $g_smtp_password		= '';
 $g_webmaster_email      = 'webmaster@example.com';
 $g_from_email           = 'noreply@example.com';
 $g_return_path_email    = 'admin@example.com';
+$g_default_language = "english";
