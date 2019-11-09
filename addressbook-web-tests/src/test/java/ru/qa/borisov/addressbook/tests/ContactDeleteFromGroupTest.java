@@ -48,12 +48,27 @@ public class ContactDeleteFromGroupTest extends TestBase {
     Contacts contacts = app.db().contacts();
     ContactData selectContact = contacts.iterator().next();
     Groups groups = app.db().groups();
-    GroupData selectGroup = groups.iterator().next();
+    GroupData selectGroup = app.db().getGroupById(contactForDeletion(contacts, groups).getId());
 
     Groups before = selectContact.getGroups();
     app.goTo().home();
     app.contact().deleteFromGroup(selectContact, selectGroup);
     Groups after = selectContact.getGroups();
     assertThat(before, equalTo(after.withAdded(selectGroup)));
+  }
+
+  private GroupData contactForDeletion(Contacts contacts, Groups groups) {
+    for (ContactData contact : contacts) {
+      if (contact.getGroups().size() > 0) {
+        Groups groupsWithContacts = contact.getGroups();
+        return groupsWithContacts.iterator().next();
+      }
+    }
+    ContactData addedContact = contacts.iterator().next();
+    GroupData group = groups.iterator().next();
+    app.goTo().home();
+    app.contact().addToGroup(addedContact, group);
+    app.goTo().selectPage(group);
+    return group;
   }
 }

@@ -111,11 +111,6 @@ public class ContactHelper extends HelperBase {
     gotoHomePage();
   }
 
-
-//  public boolean isThereAContact() {
-//    return isElementPresent(By.name("selected[]"));
-//  }
-
   public int count() {
     return wd.findElements(By.cssSelector("#maintable a[href^='edit.php']")).size();
   }

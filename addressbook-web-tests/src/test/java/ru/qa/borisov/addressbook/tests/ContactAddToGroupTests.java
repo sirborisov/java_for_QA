@@ -20,7 +20,6 @@ public class ContactAddToGroupTests extends TestBase {
       app.group().create(new GroupData().withName("Test_group_before").withHeader("group_before"));
     }
 
-    Groups groups = app.db().groups();
     app.goTo().home();
     if (app.db().contacts().size() == 0) {
       app.goTo().edit();
@@ -29,27 +28,14 @@ public class ContactAddToGroupTests extends TestBase {
                       .withAddress("Russian Federation" + "\n" + "Ulyanovsk" + "\n" + "Lenina str." + "\n" + "+-()#$!^")
                       .withMobile("128500").withWork("489").withHome("5448")
                       .withEmail("sir.borisov@gmail.com").withEmail2("borisov@gmail.com").withEmail3("sir@gmail.com")
-//                      .inGroup(groups.iterator().next())
               , true);
-    }
-
-    for (ContactData contact : app.db().contacts()) {
-      if (contact.getGroups().size() == app.db().contacts().size()) {
-        app.goTo().edit();
-        app.contact().create(new ContactData()
-                        .withFirstname("Borisov").withLastname("Vladimir").withNickname("nick")
-                        .withAddress("Russian Federation" + "\n" + "Ulyanovsk" + "\n" + "Lenina str." + "\n" + "+-()#$!^")
-                        .withMobile("128500").withWork("489").withHome("5448")
-                        .withEmail("sir.borisov@gmail.com").withEmail2("borisov@gmail.com").withEmail3("sir@gmail.com")
-                , true);
-      }
     }
   }
 
   @Test
   public void testContactAddToGroup() {
     Contacts contacts = app.db().contacts();
-    ContactData selectContact = contacts.iterator().next();
+    ContactData selectContact = contactForAdd(contacts);
     Groups groups = app.db().groups();
     GroupData selectGroup = groups.iterator().next();
 
@@ -60,5 +46,21 @@ public class ContactAddToGroupTests extends TestBase {
     app.contact().addToGroup(selectContact, selectGroup);
     ContactData DbContact = app.db().getContactById(selectContact.getId());
     assertThat(DbContact.getGroups(), equalTo(before.withAdded(selectGroup)));
+  }
+
+  private ContactData contactForAdd(Contacts before) {
+    for (ContactData contact : before) {
+      if (contact.getGroups().size() == 0) {
+        return contact;
+      }
+    }
+    app.contact().create(new ContactData()
+                    .withFirstname("Borisov").withLastname("Vladimir").withNickname("nick")
+                    .withAddress("Russian Federation" + "\n" + "Ulyanovsk" + "\n" + "Lenina str." + "\n" + "+-()#$!^")
+                    .withMobile("128500").withWork("489").withHome("5448")
+                    .withEmail("sir.borisov@gmail.com").withEmail2("borisov@gmail.com").withEmail3("sir@gmail.com")
+            , true);
+    Contacts newList = app.db().contacts();
+    return newList.iterator().next();
   }
 }

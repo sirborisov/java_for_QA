@@ -2,6 +2,7 @@ package ru.qa.borisov.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import ru.qa.borisov.addressbook.model.GroupData;
 
 public class NavigationHelper extends HelperBase {
 
@@ -16,6 +17,10 @@ public class NavigationHelper extends HelperBase {
       return;
     }
     click(By.linkText("groups"));
+  }
+
+  public void selectPage(GroupData group) {
+    wd.findElement(By.linkText("group page \"" + group.getName() + "\"")).click();
   }
 
   public void edit() {
