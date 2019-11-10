@@ -50,7 +50,8 @@ public class ContactAddToGroupTests extends TestBase {
 
   private ContactData contactForAdd(Contacts before) {
     for (ContactData contact : before) {
-      if (contact.getGroups().size() == 0) {
+//      if (contact.getGroups().size() == 0) {
+      if (contact.getGroups().size() < app.db().groups().size()) {
         return contact;
       }
     }
