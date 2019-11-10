@@ -4,6 +4,7 @@
     <test name="Login">
         <classes>
             <class name="ru.qa.borisov.mantis.tests.LoginTests"/>
+            <class name="ru.qa.borisov.mantis.tests.ChangeUserPasswordTest"/>
         </classes>
     </test>
 </suite>
