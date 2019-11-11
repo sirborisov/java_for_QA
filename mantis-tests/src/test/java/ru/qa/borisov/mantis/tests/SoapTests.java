@@ -10,10 +10,12 @@ import java.net.MalformedURLException;
 import java.rmi.RemoteException;
 import java.util.Set;
 
-public class SoapTests extends TestBase{
+public class SoapTests extends TestBase {
 
   @Test
   public void testGetProjects() throws MalformedURLException, RemoteException, ServiceException {
+    int issueId = 888;
+    skipIfNotFixed(issueId);
     Set<Project> projects = app.soap().getProjects();
     System.out.println(projects.size());
     for (Project project : projects) {
