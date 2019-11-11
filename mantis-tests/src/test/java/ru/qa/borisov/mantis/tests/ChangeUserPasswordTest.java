@@ -24,7 +24,7 @@ public class ChangeUserPasswordTest extends TestBase {
     app.goTo().myAccount();
     app.goTo().manageOverviewPage();
     app.goTo().manageUsersPage();
-    app.goTo().selectUser();
+    app.goTo().selectNotAdminUser();
     String userName = app.goTo().getUserName();
     String userEmail = app.goTo().getUserEmail();
 //    String password = "password";

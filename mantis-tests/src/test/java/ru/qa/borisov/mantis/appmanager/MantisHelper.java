@@ -30,8 +30,8 @@ public class MantisHelper extends HelperBase {
   }
 
 
-  public void selectUser() {
-    click(By.xpath("//a[contains(text(),'user')]"));
+  public void selectNotAdminUser() {
+    click(By.xpath("//a[contains(@href,'manage_user_edit_page.php') and not(contains(text(),'administrator'))]"));
   }
 
   public String getUserName() {
