@@ -12,6 +12,8 @@
       <module name="sandbox.test" target="12" />
       <module name="sandbox_main" target="12" />
       <module name="sandbox_test" target="12" />
+      <module name="soap-sample.main" target="12" />
+      <module name="soap-sample.test" target="12" />
     </bytecodeTargetLevel>
   </component>
 </project>

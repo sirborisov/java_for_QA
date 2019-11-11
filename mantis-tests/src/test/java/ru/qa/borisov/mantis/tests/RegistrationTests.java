@@ -1,5 +1,7 @@
 package ru.qa.borisov.mantis.tests;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.lanwen.verbalregex.VerbalExpression;
 import ru.qa.borisov.mantis.model.MailMessage;
@@ -12,7 +14,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class RegistrationTests extends TestBase {
 
-  //  @BeforeMethod
+    @BeforeMethod
   public void startMailServer() {
     app.mail().start();
   }
@@ -26,8 +28,8 @@ public class RegistrationTests extends TestBase {
     String realName = "USER";
     app.james().createUser(user, password);
     app.registration().start(user, email);
-//    List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
-    List<MailMessage> mailMessages = app.james().waitForMail(user, password, 120000);
+    List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
+//    List<MailMessage> mailMessages = app.james().waitForMail(user, password, 120000);
     String confirmationLink = findConfirmationLink(mailMessages, email);
     app.registration().finish(confirmationLink, password, realName);
     assertTrue(app.newSession().login(user, password));
@@ -39,7 +41,7 @@ public class RegistrationTests extends TestBase {
     return regex.getText(mailMessage.text);
   }
 
-  //  @AfterMethod (alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
   public void stopMailServer() {
     app.mail().stop();
   }
