@@ -6,6 +6,8 @@
       <module name="addressbook-web-tests.test" target="12" />
       <module name="default-project.main" target="12" />
       <module name="default-project.test" target="12" />
+      <module name="github-sample.main" target="12" />
+      <module name="github-sample.test" target="12" />
       <module name="mantis-tests.main" target="12" />
       <module name="mantis-tests.test" target="12" />
       <module name="rest-sample.main" target="12" />
