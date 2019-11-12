@@ -32,15 +32,17 @@ public class ContactDeleteFromGroupTest extends TestBase {
               , true);
     }
 
-    for (ContactData contact : app.db().contacts()) {
-      if (contact.getGroups().size() == 0) {
-        Contacts contacts = app.db().contacts();
-        ContactData selectContact = contacts.iterator().next();
-        GroupData selectGroup = groups.iterator().next();
-        app.goTo().home();
-        app.contact().addToGroup(selectContact, selectGroup);
-      }
-    }
+    // Лишнее предусловие, так как такая же проверка есть в тесте
+//    for (ContactData contact : app.db().contacts()) {
+//      if (contact.getGroups().size() == 0) {
+//        Contacts contacts = app.db().contacts();
+//        ContactData selectContact = contacts.iterator().next();
+//        GroupData selectGroup = groups.iterator().next();
+//        app.goTo().home();
+//        app.contact().addToGroup(selectContact, selectGroup);
+//        break;
+//      }
+//    }
   }
 
   @Test
@@ -68,7 +70,7 @@ public class ContactDeleteFromGroupTest extends TestBase {
     GroupData group = groups.iterator().next();
     app.goTo().home();
     app.contact().addToGroup(addedContact, group);
-    app.goTo().selectPage(group);
+//    app.goTo().selectPage(group); // лишнее действие
     return group;
   }
 }

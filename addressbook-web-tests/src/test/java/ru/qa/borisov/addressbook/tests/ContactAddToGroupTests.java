@@ -38,11 +38,9 @@ public class ContactAddToGroupTests extends TestBase {
     ContactData selectContact = contactForAdd(contacts);
     Groups groups = app.db().groups();
     GroupData selectGroup = groups.iterator().next();
+    Groups before = selectContact.getGroups();
 
     app.goTo().home();
-    app.contact().addToGroup(selectContact, selectGroup);
-
-    Groups before = selectContact.getGroups();
     app.contact().addToGroup(selectContact, selectGroup);
     ContactData DbContact = app.db().getContactById(selectContact.getId());
     assertThat(DbContact.getGroups(), equalTo(before.withAdded(selectGroup)));
@@ -50,18 +48,22 @@ public class ContactAddToGroupTests extends TestBase {
 
   private ContactData contactForAdd(Contacts before) {
     for (ContactData contact : before) {
-//      if (contact.getGroups().size() == 0) {
       if (contact.getGroups().size() < app.db().groups().size()) {
         return contact;
       }
     }
-    app.contact().create(new ContactData()
-                    .withFirstname("Borisov").withLastname("Vladimir").withNickname("nick")
-                    .withAddress("Russian Federation" + "\n" + "Ulyanovsk" + "\n" + "Lenina str." + "\n" + "+-()#$!^")
-                    .withMobile("128500").withWork("489").withHome("5448")
-                    .withEmail("sir.borisov@gmail.com").withEmail2("borisov@gmail.com").withEmail3("sir@gmail.com")
-            , true);
-    Contacts newList = app.db().contacts();
-    return newList.iterator().next();
+    app.goTo().home();
+    ContactData newContact = new ContactData()
+            .withFirstname("Borisov").withLastname("Vladimir").withNickname("nick")
+            .withAddress("Russian Federation" + "\n" + "Ulyanovsk" + "\n" + "Lenina str." + "\n" + "+-()#$!^")
+            .withMobile("128500").withWork("489").withHome("5448")
+            .withEmail("sir.borisov@gmail.com").withEmail2("borisov@gmail.com").withEmail3("sir@gmail.com");
+    app.goTo().edit();
+    app.contact().create(newContact, false);
+    Contacts after = app.db().contacts();
+    newContact.withId(after.stream().mapToInt((c) -> (c).getId()).max().getAsInt());
+    int id = newContact.getId();
+    ContactData contact = newContact;
+    return contact;
   }
 }
