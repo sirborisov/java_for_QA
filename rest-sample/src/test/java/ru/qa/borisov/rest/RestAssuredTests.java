@@ -14,7 +14,12 @@ import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
-public class RestTests {
+public class RestAssuredTests {
+
+//  @BeforeClass
+//  public void init () {
+//    RestAssured.authentication = RestAssured.basic("b2751749026578d319630a8e815e7ea4", "");
+//  }
 
   @Test
   public void testCreateIssue() throws IOException {
@@ -27,21 +32,25 @@ public class RestTests {
   }
 
   private Set<Issue> getIssues() throws IOException {
-    String json = getExecutor().execute(Request.Get("http://demo.bugify.com/api/issues.json")).returnContent().asString();
+    String json = getExecutor().execute(Request.Get("https://bugify.stqa.ru/api/issues.json")).returnContent().asString();
+//    String json = RestAssured.get("http://demo.bugify.com/api/issues.json").asString();
     JsonElement parsed = new JsonParser().parse(json);
     JsonElement issues = parsed.getAsJsonObject().get("issues");
     return new Gson().fromJson(issues, new TypeToken<Set<Issue>>(){}.getType());
   }
 
   private int createIssue(Issue newIssue) throws IOException {
-    String json = getExecutor().execute(Request.Post("http://demo.bugify.com/api/issues.json")
+    String json = getExecutor().execute(Request.Post("https://bugify.stqa.ru/api/issues.json")
     .bodyForm(new BasicNameValuePair("subject", newIssue.getSubject())
     , new BasicNameValuePair("description", newIssue.getDescription()))).returnContent().asString();
+//    String json = RestAssured.given().parameter("subject", newIssue.getSubject())
+//            .parameter("description", newIssue.getDescription())
+//            .post("http://demo.bugify.com/api/issues.json").asString();
     JsonElement parsed = new JsonParser().parse(json);
     return parsed.getAsJsonObject().get("issue_id").getAsInt();
   }
 
   public Executor getExecutor() {
-    return Executor.newInstance().auth("b2751749026578d319630a8e815e7ea4", "");
+    return Executor.newInstance().auth("288f44776e7bec4bf44fdfeb1e646490", "");
   }
 }

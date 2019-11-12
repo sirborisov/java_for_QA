@@ -1,84 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - Class ru.qa.borisov.rest.RestTests</title>
-<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
-<link href="../css/style.css" rel="stylesheet" type="text/css"/>
-<script src="../js/report.js" type="text/javascript"></script>
-</head>
-<body>
-<div id="content">
-<h1>Class ru.qa.borisov.rest.RestTests</h1>
-<div class="breadcrumbs">
-<a href="../index.html">all</a> &gt; 
-<a href="../packages/ru.qa.borisov.rest.html">ru.qa.borisov.rest</a> &gt; RestTests</div>
-<div id="summary">
-<table>
-<tr>
-<td>
-<div class="summaryGroup">
-<table>
-<tr>
-<td>
-<div class="infoBox" id="tests">
-<div class="counter">1</div>
-<p>tests</p>
-</div>
-</td>
-<td>
-<div class="infoBox" id="failures">
-<div class="counter">1</div>
-<p>failures</p>
-</div>
-</td>
-<td>
-<div class="infoBox" id="ignored">
-<div class="counter">0</div>
-<p>ignored</p>
-</div>
-</td>
-<td>
-<div class="infoBox" id="duration">
-<div class="counter">1m1.68s</div>
-<p>duration</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</td>
-<td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
-<p>successful</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div id="tabs">
-<ul class="tabLinks">
-<li>
-<a href="#tab0">Failed tests</a>
-</li>
-<li>
-<a href="#tab1">Tests</a>
-</li>
-</ul>
-<div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="testCreateIssue"></a>
-<h3 class="failures">testCreateIssue</h3>
-<span class="code">
-<pre>org.apache.http.client.HttpResponseException: status code: 504, reason phrase: Gateway Time-out
-	at org.apache.http.impl.client.AbstractResponseHandler.handleResponse(AbstractResponseHandler.java:70)
-	at org.apache.http.client.fluent.Response.handleResponse(Response.java:90)
-	at org.apache.http.client.fluent.Response.returnContent(Response.java:97)
-	at ru.qa.borisov.rest.RestTests.createIssue(RestTests.java:39)
-	at ru.qa.borisov.rest.RestTests.testCreateIssue(RestTests.java:23)
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.qa.borisov.rest.RestAssuredTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2019-11-12T15:49:38" hostname="MAC-005" time="4.816">
+  <properties/>
+  <testcase name="testCreateIssue" classname="ru.qa.borisov.rest.RestAssuredTests" time="4.816">
+    <failure message="java.lang.AssertionError: Sets differ: expected [ru.qa.borisov.rest.Issue@c08c74d, ru.qa.borisov.rest.Issue@c08cb0e, ru.qa.borisov.rest.Issue@6a306b23, ru.qa.borisov.rest.Issue@6a306ee4, ru.qa.borisov.rest.Issue@6a3072a5, ru.qa.borisov.rest.Issue@6a307666, ru.qa.borisov.rest.Issue@6a307a27, ru.qa.borisov.rest.Issue@c08e194, ru.qa.borisov.rest.Issue@c08e555, ru.qa.borisov.rest.Issue@c08e916, ru.qa.borisov.rest.Issue@c08ecd7, ru.qa.borisov.rest.Issue@c08f098, ru.qa.borisov.rest.Issue@c08f459, ru.qa.borisov.rest.Issue@c08f81a, ru.qa.borisov.rest.Issue@c08fbdb, ru.qa.borisov.rest.Issue@c08ff9c, ru.qa.borisov.rest.Issue@c09035d, ru.qa.borisov.rest.Issue@c09071e, ru.qa.borisov.rest.Issue@c090adf, ru.qa.borisov.rest.Issue@c090ea0, ru.qa.borisov.rest.Issue@d0407f33] but got [ru.qa.borisov.rest.Issue@c08c74d, ru.qa.borisov.rest.Issue@c08cb0e, ru.qa.borisov.rest.Issue@6a306b23, ru.qa.borisov.rest.Issue@6a306ee4, ru.qa.borisov.rest.Issue@6a3072a5, ru.qa.borisov.rest.Issue@6a307666, ru.qa.borisov.rest.Issue@6a307a27, ru.qa.borisov.rest.Issue@c08e194, ru.qa.borisov.rest.Issue@c08e555, ru.qa.borisov.rest.Issue@c08e916, ru.qa.borisov.rest.Issue@c08ecd7, ru.qa.borisov.rest.Issue@c08f098, ru.qa.borisov.rest.Issue@c08f459, ru.qa.borisov.rest.Issue@c08f81a, ru.qa.borisov.rest.Issue@c08fbdb, ru.qa.borisov.rest.Issue@c08ff9c, ru.qa.borisov.rest.Issue@c09035d, ru.qa.borisov.rest.Issue@c09071e, ru.qa.borisov.rest.Issue@c090adf, ru.qa.borisov.rest.Issue@c090ea0]" type="java.lang.AssertionError">java.lang.AssertionError: Sets differ: expected [ru.qa.borisov.rest.Issue@c08c74d, ru.qa.borisov.rest.Issue@c08cb0e, ru.qa.borisov.rest.Issue@6a306b23, ru.qa.borisov.rest.Issue@6a306ee4, ru.qa.borisov.rest.Issue@6a3072a5, ru.qa.borisov.rest.Issue@6a307666, ru.qa.borisov.rest.Issue@6a307a27, ru.qa.borisov.rest.Issue@c08e194, ru.qa.borisov.rest.Issue@c08e555, ru.qa.borisov.rest.Issue@c08e916, ru.qa.borisov.rest.Issue@c08ecd7, ru.qa.borisov.rest.Issue@c08f098, ru.qa.borisov.rest.Issue@c08f459, ru.qa.borisov.rest.Issue@c08f81a, ru.qa.borisov.rest.Issue@c08fbdb, ru.qa.borisov.rest.Issue@c08ff9c, ru.qa.borisov.rest.Issue@c09035d, ru.qa.borisov.rest.Issue@c09071e, ru.qa.borisov.rest.Issue@c090adf, ru.qa.borisov.rest.Issue@c090ea0, ru.qa.borisov.rest.Issue@d0407f33] but got [ru.qa.borisov.rest.Issue@c08c74d, ru.qa.borisov.rest.Issue@c08cb0e, ru.qa.borisov.rest.Issue@6a306b23, ru.qa.borisov.rest.Issue@6a306ee4, ru.qa.borisov.rest.Issue@6a3072a5, ru.qa.borisov.rest.Issue@6a307666, ru.qa.borisov.rest.Issue@6a307a27, ru.qa.borisov.rest.Issue@c08e194, ru.qa.borisov.rest.Issue@c08e555, ru.qa.borisov.rest.Issue@c08e916, ru.qa.borisov.rest.Issue@c08ecd7, ru.qa.borisov.rest.Issue@c08f098, ru.qa.borisov.rest.Issue@c08f459, ru.qa.borisov.rest.Issue@c08f81a, ru.qa.borisov.rest.Issue@c08fbdb, ru.qa.borisov.rest.Issue@c08ff9c, ru.qa.borisov.rest.Issue@c09035d, ru.qa.borisov.rest.Issue@c09071e, ru.qa.borisov.rest.Issue@c090adf, ru.qa.borisov.rest.Issue@c090ea0]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.assertEquals(Assert.java:1042)
+	at org.testng.Assert.assertEquals(Assert.java:1020)
+	at ru.qa.borisov.rest.RestAssuredTests.testCreateIssue(RestAssuredTests.java:31)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -129,37 +57,8 @@
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
 	at java.base/java.lang.Thread.run(Thread.java:835)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
-<h2>Tests</h2>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Duration</th>
-<th>Result</th>
-</tr>
-</thead>
-<tr>
-<td class="failures">testCreateIssue</td>
-<td class="failures">1m1.68s</td>
-<td class="failures">failed</td>
-</tr>
-</table>
-</div>
-</div>
-<div id="footer">
-<p>
-<div>
-<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
-<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
-</label>
-</div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.5.1</a> at 11 нояб. 2019 г., 22:59:57</p>
-</div>
-</div>
-</body>
-</html>
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
