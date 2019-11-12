@@ -14,7 +14,7 @@ import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
-public class RestAssuredTests {
+public class RestAssuredTests extends TestBase {
 
 //  @BeforeClass
 //  public void init () {
@@ -25,9 +25,9 @@ public class RestAssuredTests {
   public void testCreateIssue() throws IOException {
     Set<Issue> oldIssues = getIssues();
     Issue newIssue = new Issue().withSubject("Test issue").withDescription("Test description");
-    int issueId = createIssue (newIssue);
+    int idIssue = createIssue(newIssue);
     Set<Issue> newIssues = getIssues();
-    oldIssues.add(newIssue.withId(issueId));
+    oldIssues.add(newIssue.withId(idIssue));
     assertEquals(newIssues, oldIssues);
   }
 
@@ -36,13 +36,14 @@ public class RestAssuredTests {
 //    String json = RestAssured.get("http://demo.bugify.com/api/issues.json").asString();
     JsonElement parsed = new JsonParser().parse(json);
     JsonElement issues = parsed.getAsJsonObject().get("issues");
-    return new Gson().fromJson(issues, new TypeToken<Set<Issue>>(){}.getType());
+    return new Gson().fromJson(issues, new TypeToken<Set<Issue>>() {
+    }.getType());
   }
 
   private int createIssue(Issue newIssue) throws IOException {
     String json = getExecutor().execute(Request.Post("https://bugify.stqa.ru/api/issues.json")
-    .bodyForm(new BasicNameValuePair("subject", newIssue.getSubject())
-    , new BasicNameValuePair("description", newIssue.getDescription()))).returnContent().asString();
+            .bodyForm(new BasicNameValuePair("subject", newIssue.getSubject())
+                    , new BasicNameValuePair("description", newIssue.getDescription()))).returnContent().asString();
 //    String json = RestAssured.given().parameter("subject", newIssue.getSubject())
 //            .parameter("description", newIssue.getDescription())
 //            .post("http://demo.bugify.com/api/issues.json").asString();
