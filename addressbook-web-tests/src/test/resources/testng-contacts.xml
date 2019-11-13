@@ -9,10 +9,10 @@
             <class name="ru.qa.borisov.addressbook.tests.ContactModificationTests"/>
             <class name="ru.qa.borisov.addressbook.tests.ContactAddToGroupTests"/>
             <class name="ru.qa.borisov.addressbook.tests.ContactDeleteFromGroupTest"/>
-            <class name="ru.qa.borisov.addressbook.tests.ContactMainTest"/>
-            <class name="ru.qa.borisov.addressbook.tests.ContactPhoneTest"/>
-            <class name="ru.qa.borisov.addressbook.tests.ContactPostTest"/>
-            <class name="ru.qa.borisov.addressbook.tests.ContactEmailTest"/>
+<!--            <class name="ru.qa.borisov.addressbook.tests.ContactMainTest"/>-->
+<!--            <class name="ru.qa.borisov.addressbook.tests.ContactPhoneTest"/>-->
+<!--            <class name="ru.qa.borisov.addressbook.tests.ContactPostTest"/>-->
+<!--            <class name="ru.qa.borisov.addressbook.tests.ContactEmailTest"/>-->
         </classes>
     </test>
 </suite>
