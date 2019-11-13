@@ -9,7 +9,7 @@
             <!--            <class name="ru.qa.borisov.addressbook.tests.ContactPostTest"/>-->
             <!--            <class name="ru.qa.borisov.addressbook.tests.ContactEmailTest"/>-->
             <!--            <class name="ru.qa.borisov.addressbook.tests.ContactModificationTests"/>-->
-            <class name="ru.qa.borisov.addressbook.tests.ContactDeletionTest"/>
+<!--            <class name="ru.qa.borisov.addressbook.tests.ContactDeletionTest"/>-->
         </classes>
     </test>
 </suite>
