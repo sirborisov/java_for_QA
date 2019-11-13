@@ -20,3 +20,4 @@ addressbook-web-tests/src/test/resources/img.jpeg
 *.json
 *.csv
 *.log
+sandbox/build/test-results/test.xml
