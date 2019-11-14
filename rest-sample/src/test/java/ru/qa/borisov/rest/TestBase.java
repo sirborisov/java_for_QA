@@ -1,6 +1,5 @@
 package ru.qa.borisov.rest;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -18,12 +17,12 @@ public class TestBase {
             .execute(Request.Get("https://bugify.stqa.ru/api/issues/" + issueId + ".json"))
             .returnContent().asString();
     JsonObject parsed = new JsonParser().parse(json).getAsJsonObject();
-    JsonArray issues = parsed.getAsJsonArray("issues");
-    for (JsonElement state_name : issues) {
+    JsonElement issues = parsed.getAsJsonArray("issues").get(0);
+//    for (JsonElement state_name : issues) {
 //      JsonObject statuses = state_name.getAsJsonObject();
-      status = state_name.getAsJsonObject().get("state_name").toString().replaceAll("\"", "");
-      System.out.println("Task status = " + status);
-    }
+    status = issues.getAsJsonObject().get("state_name").toString().replaceAll("\"", "");
+    System.out.println("Task status = " + status);
+//    }
     return !status.equals("Resolved");
   }
 
