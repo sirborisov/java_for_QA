@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.qa.borisov.rest.PrimeTests" tests="1" skipped="1" failures="0" errors="0" timestamp="2019-11-12T16:47:44" hostname="MAC-005" time="5.654">
+<testsuite name="ru.qa.borisov.rest.PrimeTests" tests="1" skipped="1" failures="0" errors="0" timestamp="2019-11-14T06:25:23" hostname="MAC-005" time="1.935">
   <properties/>
-  <testcase name="testPrime" classname="ru.qa.borisov.rest.PrimeTests" time="5.654">
+  <testcase name="testPrime" classname="ru.qa.borisov.rest.PrimeTests" time="1.935">
     <skipped/>
   </testcase>
   <system-out><![CDATA[Task status = Deleted

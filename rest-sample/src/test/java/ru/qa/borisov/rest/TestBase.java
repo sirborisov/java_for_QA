@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class TestBase {
 
-
   boolean isIssueOpen(int issueId) throws IOException {
     String status = "";
     String json = getExecutor()
@@ -21,8 +20,8 @@ public class TestBase {
     JsonObject parsed = new JsonParser().parse(json).getAsJsonObject();
     JsonArray issues = parsed.getAsJsonArray("issues");
     for (JsonElement state_name : issues) {
-      JsonObject statuses = state_name.getAsJsonObject();
-      status = statuses.get("state_name").toString().replaceAll("\"", "");
+//      JsonObject statuses = state_name.getAsJsonObject();
+      status = state_name.getAsJsonObject().get("state_name").toString().replaceAll("\"", "");
       System.out.println("Task status = " + status);
     }
     return !status.equals("Resolved");
